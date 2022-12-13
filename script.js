@@ -1,6 +1,7 @@
 "use strict";
 
 const Osoba = function (ime, datumRodjenja) {
+  // Instance properties
   this.ime = ime;
   this.datumRodjenja = datumRodjenja;
 };
@@ -19,3 +20,5 @@ const zoran = new Osoba("Zoran", 1965);
 
 console.log(zorica);
 console.log(zoran);
+
+console.log(zorica instanceof Osoba); // provera da li je object zorica instance od Osoba
