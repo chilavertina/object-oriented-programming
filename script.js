@@ -13,3 +13,9 @@ console.log(uros);
 // 2. funkcija se poziva, a 'this' se povezuje sa novokreiranim praznim objektom
 // 3. novokreirani object je povezan sa prototype
 // 4. funkcija automatski 'return' prazan objekat sa pocetka
+
+const zorica = new Osoba("Zorica", 1966);
+const zoran = new Osoba("Zoran", 1965);
+
+console.log(zorica);
+console.log(zoran);
