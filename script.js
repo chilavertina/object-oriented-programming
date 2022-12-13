@@ -4,6 +4,11 @@ const Osoba = function (ime, datumRodjenja) {
   // Instance properties
   this.ime = ime;
   this.datumRodjenja = datumRodjenja;
+
+  // NIKAD NE RADI OVO - KREIRANJE METODE U CONSTRUCTION funkciji (Osoba funkcija)
+  this.calcAge = function () {
+    console.log(2022 - this.datumRodjenja);
+  };
 };
 
 const uros = new Osoba("Uros", 1993);
