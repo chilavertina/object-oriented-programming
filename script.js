@@ -27,3 +27,14 @@ console.log(zorica);
 console.log(zoran);
 
 console.log(zorica instanceof Osoba); // provera da li je object zorica instance od Osoba
+
+// PROTOTYPES
+console.log(Osoba.prototype);
+
+Osoba.prototype.calcAge = function () {
+  console.log(2022 - this.datumRodjenja);
+};
+
+zorica.calcAge();
+zoran.calcAge();
+uros.calcAge();
