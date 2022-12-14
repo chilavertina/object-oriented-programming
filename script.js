@@ -38,3 +38,12 @@ Osoba.prototype.calcAge = function () {
 zorica.calcAge();
 zoran.calcAge();
 uros.calcAge();
+
+console.log(uros.__proto__); // __proto__ property nastaje u trecem koraku pozivanja funkcije new
+console.log(uros.__proto__ === Osoba.prototype); //prototype uros-a je isti kao i prototype Osoba-e constructor objekta
+
+Osoba.prototype.vrsta = "Homo Sapiens";
+console.log(uros.vrsta, zoran.vrsta);
+
+console.log(zoran.hasOwnProperty("ime"));
+console.log(zoran.hasOwnProperty("vrsta"));
