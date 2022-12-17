@@ -77,6 +77,10 @@ class PersonCl {
   calcAge() {
     console.log(2022 - this.birthYear);
   }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
 }
 
 const milica = new PersonCl("Milica", 1996);
@@ -86,7 +90,7 @@ milica.calcAge();
 console.log(milica.__proto__ === PersonCl.prototype); // provera da li je prototype milice isto sto i prototype PersonCl
 
 // dodavanje metode izvan klase
-PersonCl.prototype.greet = function () {
-  console.log(`Hey ${this.firstName}`);
-};
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
 milica.greet();
