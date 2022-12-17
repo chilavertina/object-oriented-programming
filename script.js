@@ -63,7 +63,7 @@ console.log(arr.unique());
 */
 
 // ES6 CLASSES
-
+/*
 // class expression
 // const PersonCl = class {};
 
@@ -94,3 +94,16 @@ console.log(milica.__proto__ === PersonCl.prototype); // provera da li je protot
 //   console.log(`Hey ${this.firstName}`);
 // };
 milica.greet();
+*/
+
+// SET and GET
+const account = {
+  owner: "Marko",
+  movements: [120, 300, 420, 400, 640],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+};
+
+console.log(account.latest);
