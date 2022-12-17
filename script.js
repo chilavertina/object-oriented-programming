@@ -1,5 +1,6 @@
 "use strict";
 
+/*
 const Osoba = function (ime, datumRodjenja) {
   // Instance properties
   this.ime = ime;
@@ -59,3 +60,27 @@ Array.prototype.unique = function () {
 };
 
 console.log(arr.unique());
+*/
+
+// ES6 CLASSES
+
+// class expression
+// const PersonCl = class {};
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+}
+
+const milica = new PersonCl("Milica", 1996);
+console.log(milica);
+milica.calcAge();
+
+console.log(milica.__proto__ === PersonCl.prototype); // provera da li je prototype milice isto sto i prototype PersonCl
