@@ -213,10 +213,21 @@ const PersonProto = {
   calcAge() {
     console.log(2022 - this.birthYear);
   },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
 };
 
-const steven = Object.create(PersonProto);
+const steven = Object.create(PersonProto); // dodeljuje se prototip steven-a PersonProto-u
 console.log(steven);
 steven.name = "Steven";
 steven.birthYear = 2002;
 steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto); // steven prototip je isti kao prototip PersonProto-a
+
+const sarah = Object.create(PersonProto);
+sarah.init("Sarah", 1979);
+sarah.calcAge();
