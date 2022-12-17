@@ -251,7 +251,7 @@ const Student = function (ime, datumRodjenja, kurs) {
 };
 
 // Povezivanje prototipova
-Student.prototype = Object.create(Person.prototype);
+Student.prototype = Object.create(Osoba.prototype);
 
 Student.prototype.predstavljanje = function () {
   console.log(`Moje ime je ${this.ime} i ja pohadjam ${this.kurs}.`);
@@ -259,3 +259,4 @@ Student.prototype.predstavljanje = function () {
 
 const uros = new Student("Uros", 1993, "Javascript");
 uros.predstavljanje();
+uros.calcAge();
