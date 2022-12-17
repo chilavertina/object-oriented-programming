@@ -209,6 +209,8 @@ const milica = new PersonCl("Milica Mitrovic", 1996);
 PersonCl.pozdrav();
 */
 
+/*
+// Object.create
 const PersonProto = {
   calcAge() {
     console.log(2022 - this.birthYear);
@@ -231,3 +233,27 @@ console.log(steven.__proto__ === PersonProto); // steven prototip je isti kao pr
 const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1979);
 sarah.calcAge();
+*/
+
+// INHERITANCE izmedju KLASA: CONSTRUCTOR FUNCTIONS
+const Osoba = function (ime, datumRodjenja) {
+  this.ime = ime;
+  this.datumRodjenja = datumRodjenja;
+};
+
+Osoba.prototype.calcAge = function () {
+  console.log(2022 - this.datumRodjenja);
+};
+
+const Student = function (ime, datumRodjenja, kurs) {
+  this.ime = ime;
+  this.datumRodjenja = datumRodjenja;
+  this.kurs = kurs;
+};
+
+Student.prototype.predstavljanje = function () {
+  console.log(`Moje ime je ${this.ime} i ja pohadjam ${this.kurs}.`);
+};
+
+const uros = new Student("Uros", 1993, "Javascript");
+uros.predstavljanje();
