@@ -114,3 +114,25 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  get age() {
+    return 2022 - this.birthYear;
+  }
+}
+
+const milica = new PersonCl("Milica", 1996);
+console.log(milica.age);
