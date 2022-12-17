@@ -151,6 +151,7 @@ console.log(milica);
 
 const walter = new PersonCl("Walter", 1976);
 */
+/*
 // Static metode - vezuju se za constructor funkcije
 const Osoba = function (ime, datumRodjenja) {
   this.ime = ime;
@@ -206,3 +207,10 @@ class PersonCl {
 const milica = new PersonCl("Milica Mitrovic", 1996);
 
 PersonCl.pozdrav();
+*/
+
+const PersonProto = {
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  },
+};
