@@ -47,3 +47,15 @@ console.log(uros.vrsta, zoran.vrsta);
 
 console.log(zoran.hasOwnProperty("ime"));
 console.log(zoran.hasOwnProperty("vrsta"));
+
+const arr = [3, 4, 7, 3, 9, 9, 5]; // new Array === []
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique());
