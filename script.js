@@ -161,7 +161,48 @@ const uros = new Osoba("Uros", 1993);
 
 Osoba.pozdrav = function () {
   console.log("Pozdrav 🖐");
-  console.log(this);
+  console.log(this); // this ukazuje na celu constructor funkciju
 };
 
 Osoba.pozdrav();
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  // Instance metode
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  get age() {
+    return 2022 - this.birthYear;
+  }
+
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullName = name;
+    else alert(`${name} is not a full name!!!`);
+  }
+
+  // set propertija koji vec postoji
+  get fullName() {
+    return this._fullName;
+  }
+
+  // Static metoda
+  static pozdrav() {
+    console.log("Pozdrav 🖐");
+    console.log(this); // this ukazuje na celu klasu
+  }
+}
+
+const milica = new PersonCl("Milica Mitrovic", 1996);
+
+PersonCl.pozdrav();
