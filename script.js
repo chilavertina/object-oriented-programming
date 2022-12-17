@@ -250,6 +250,9 @@ const Student = function (ime, datumRodjenja, kurs) {
   this.kurs = kurs;
 };
 
+// Povezivanje prototipova
+Student.prototype = Object.create(Person.prototype);
+
 Student.prototype.predstavljanje = function () {
   console.log(`Moje ime je ${this.ime} i ja pohadjam ${this.kurs}.`);
 };
