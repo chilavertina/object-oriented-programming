@@ -116,8 +116,8 @@ account.latest = 50;
 console.log(account.movements);
 
 class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
@@ -132,7 +132,21 @@ class PersonCl {
   get age() {
     return 2022 - this.birthYear;
   }
+
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullName = name; // ovde dodajemo _ fullName-u kako bismo izbegli da property setter-a bude isti kao property constructor-a
+    else alert(`${name} is not a full name!!!`);
+  }
+
+  // set propertija koji vec postoji
+  get fullName() {
+    return this._fullName;
+  }
 }
 
-const milica = new PersonCl("Milica", 1996);
+const milica = new PersonCl("Milica Mitrovic", 1996);
 console.log(milica.age);
+console.log(milica);
+
+const walter = new PersonCl("Walter", 1976);
