@@ -95,7 +95,7 @@ console.log(milica.__proto__ === PersonCl.prototype); // provera da li je protot
 // };
 milica.greet();
 */
-
+/*
 // SET and GET
 const account = {
   owner: "Marko",
@@ -150,3 +150,18 @@ console.log(milica.age);
 console.log(milica);
 
 const walter = new PersonCl("Walter", 1976);
+*/
+// Static metode - vezuju se za constructor funkcije
+const Osoba = function (ime, datumRodjenja) {
+  this.ime = ime;
+  this.datumRodjenja = datumRodjenja;
+};
+
+const uros = new Osoba("Uros", 1993);
+
+Osoba.pozdrav = function () {
+  console.log("Pozdrav 🖐");
+  console.log(this);
+};
+
+Osoba.pozdrav();
