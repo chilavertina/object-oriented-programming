@@ -246,8 +246,7 @@ Osoba.prototype.calcAge = function () {
 };
 
 const Student = function (ime, datumRodjenja, kurs) {
-  this.ime = ime;
-  this.datumRodjenja = datumRodjenja;
+  Osoba.call(this, ime, datumRodjenja);
   this.kurs = kurs;
 };
 
