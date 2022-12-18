@@ -355,41 +355,57 @@ jay.introduce();
 jay.calcAge();
 */
 
+// Public fields
+// Private fields
+// Public methods
+// Private methods
+// (postoji i static version)
+
 class Nalog {
+  // Public fields - bice prikazani u svim instancama koje budemo kreirali u klasi i nece biti dodati prototipu
+  locale = navigator.language;
+
+  // Private fields - bice prikazani u svim instancama koje budemo kreirali u klasi i nece biti dodati prototipu
+  #transakcije = []; // # cini properti private-om, sto znaci da je properti zasticen i da nemamo pristup njemu
+  #pin;
+
   constructor(vlasnik, valuta, pin) {
     this.vlasnik = vlasnik;
     this.valuta = valuta;
     // zasticen property
-    this._pin = pin;
-    this._transakcije = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
+    // this._transakcije = [];
+    // this.locale = navigator.language;
 
     console.log(`Hvala sto ste otvorili nalog, ${this.vlasnik}.`);
   }
-
+  // Public methods
   // Public interface
 
   getTransakcije() {
-    return this._transakcije;
+    return this.#transakcije;
   }
 
   uplata(vrednost) {
-    this._transakcije.push(vrednost);
+    this.#transakcije.push(vrednost);
   }
 
   isplata(vrednost) {
     this.uplata(-vrednost);
   }
 
-  _odobriPozajmicu(vrednost) {
-    return true;
-  }
-
   zatraziPozajmicu(vrednost) {
+    // if (this.#odobriPozajmicu(vrednost)) {
     if (this._odobriPozajmicu(vrednost)) {
       this.uplata(vrednost);
       console.log("Pozajmica odobrena.");
     }
+  }
+
+  // Private methods
+  // #odobriPozajmicu(vrednost) {
+  _odobriPozajmicu(vrednost) {
+    return true;
   }
 }
 
@@ -400,3 +416,6 @@ nalog1.isplata(150);
 nalog1.zatraziPozajmicu(1500);
 console.log(nalog1.getTransakcije());
 console.log(nalog1);
+
+// console.log(nalog1.#transakcije);
+// console.log(nalog1.#pin);
