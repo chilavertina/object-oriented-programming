@@ -260,3 +260,64 @@ Student.prototype.predstavljanje = function () {
 const uros = new Student("Uros", 1993, "Javascript");
 uros.predstavljanje();
 uros.calcAge();
+
+// INHERITANCE izmedju KLASA: ES6 KLASE
+
+class PersonCl {
+  constructor(fullName, datumRodjenja) {
+    this.fullName = fullName;
+    this.datumRodjenja = datumRodjenja;
+  }
+
+  // Instance metode
+  calcAge() {
+    console.log(2022 - this.datumRodjenja);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  get age() {
+    return 2022 - this.datumRodjenja;
+  }
+
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullName = name;
+    else alert(`${name} is not a full name!!!`);
+  }
+
+  // set propertija koji vec postoji
+  get fullName() {
+    return this._fullName;
+  }
+
+  // Static metoda
+  static pozdrav() {
+    console.log("Pozdrav 🖐");
+    console.log(this); // this ukazuje na celu klasu
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(ime, datumRodjenja, kurs) {
+    // Uvek se prvo pise super
+    super(ime, datumRodjenja); // super se odnosi na parent class constructor funkciju (PersonCl), super poziva (call) parent class constructor (parent) funkciju
+    ///////////////////////////// super omogucava upotrebu tj. pristup this
+    this.kurs = kurs;
+  }
+
+  introduce() {
+    console.log(`Moje ime je ${this.fullName} i ja ucim ${this.kurs}.`);
+  }
+
+  calcAge() {
+    console.log(`Moje ime je ${this.fullName} i imam ${2022 - this.datumRodjenja} godina, ali se osecam kao da imam ${2022 - this.datumRodjenja + 10}.`);
+  }
+}
+
+const kure = new StudentCl("Kure Kurandic", 1991, "Python");
+console.log(kure);
+kure.introduce();
+kure.calcAge(); // calcAge metoda child klase (StudentCl) override-uje calcAge metodu iz parent klase (PersonCl)
