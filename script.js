@@ -321,3 +321,35 @@ const kure = new StudentCl("Kure Kurandic", 1991, "Python");
 console.log(kure);
 kure.introduce();
 kure.calcAge(); // calcAge metoda child klase (StudentCl) override-uje calcAge metodu iz parent klase (PersonCl)
+
+// INHERITANCE izmedju KLASA: Object.create
+
+const PersonProto = {
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`Moje ime je ${this.firstName} i ja ucim ${this.course}.`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init("Jay", 2000, "React");
+console.log(jay);
+jay.introduce();
+jay.calcAge();
