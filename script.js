@@ -374,10 +374,22 @@ class Nalog {
   isplata(vrednost) {
     this.uplata(-vrednost);
   }
+
+  odobriPozajmicu(vrednost) {
+    return true;
+  }
+
+  zatraziPozajmicu(vrednost) {
+    if (this.odobriPozajmicu(vrednost)) {
+      this.uplata(vrednost);
+      console.log("Pozajmica odobrena.");
+    }
+  }
 }
 
 const nalog1 = new Nalog("Uros", "EUR", 1111);
 
 nalog1.uplata(250);
 nalog1.isplata(150);
+nalog1.zatraziPozajmicu(1500);
 console.log(nalog1);
