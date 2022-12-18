@@ -388,10 +388,12 @@ class Nalog {
 
   uplata(vrednost) {
     this.#transakcije.push(vrednost);
+    return this;
   }
 
   isplata(vrednost) {
     this.uplata(-vrednost);
+    return this;
   }
 
   zatraziPozajmicu(vrednost) {
@@ -399,6 +401,7 @@ class Nalog {
     if (this._odobriPozajmicu(vrednost)) {
       this.uplata(vrednost);
       console.log("Pozajmica odobrena.");
+      return this;
     }
   }
 
@@ -419,3 +422,7 @@ console.log(nalog1);
 
 // console.log(nalog1.#transakcije);
 // console.log(nalog1.#pin);
+
+// CHAINING METHODS
+nalog1.uplata(300).uplata(200).isplata(1000).isplata(15000).zatraziPozajmicu(30000);
+console.log(nalog1.getTransakcije());
