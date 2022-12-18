@@ -359,28 +359,34 @@ class Nalog {
   constructor(vlasnik, valuta, pin) {
     this.vlasnik = vlasnik;
     this.valuta = valuta;
-    this.pin = pin;
-    this.transakcije = [];
+    // zasticen property
+    this._pin = pin;
+    this._transakcije = [];
     this.locale = navigator.language;
 
     console.log(`Hvala sto ste otvorili nalog, ${this.vlasnik}.`);
   }
 
   // Public interface
+
+  getTransakcije() {
+    return this._transakcije;
+  }
+
   uplata(vrednost) {
-    this.transakcije.push(vrednost);
+    this._transakcije.push(vrednost);
   }
 
   isplata(vrednost) {
     this.uplata(-vrednost);
   }
 
-  odobriPozajmicu(vrednost) {
+  _odobriPozajmicu(vrednost) {
     return true;
   }
 
   zatraziPozajmicu(vrednost) {
-    if (this.odobriPozajmicu(vrednost)) {
+    if (this._odobriPozajmicu(vrednost)) {
       this.uplata(vrednost);
       console.log("Pozajmica odobrena.");
     }
@@ -392,4 +398,5 @@ const nalog1 = new Nalog("Uros", "EUR", 1111);
 nalog1.uplata(250);
 nalog1.isplata(150);
 nalog1.zatraziPozajmicu(1500);
+console.log(nalog1.getTransakcije());
 console.log(nalog1);
