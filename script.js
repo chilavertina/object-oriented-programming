@@ -234,7 +234,7 @@ const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1979);
 sarah.calcAge();
 */
-
+/*
 // INHERITANCE izmedju KLASA: CONSTRUCTOR FUNCTIONS
 const Osoba = function (ime, datumRodjenja) {
   this.ime = ime;
@@ -353,3 +353,31 @@ jay.init("Jay", 2000, "React");
 console.log(jay);
 jay.introduce();
 jay.calcAge();
+*/
+
+class Nalog {
+  constructor(vlasnik, valuta, pin) {
+    this.vlasnik = vlasnik;
+    this.valuta = valuta;
+    this.pin = pin;
+    this.transakcije = [];
+    this.locale = navigator.language;
+
+    console.log(`Hvala sto ste otvorili nalog, ${this.vlasnik}.`);
+  }
+
+  // Public interface
+  uplata(vrednost) {
+    this.transakcije.push(vrednost);
+  }
+
+  isplata(vrednost) {
+    this.uplata(-vrednost);
+  }
+}
+
+const nalog1 = new Nalog("Uros", "EUR", 1111);
+
+nalog1.uplata(250);
+nalog1.isplata(150);
+console.log(nalog1);
